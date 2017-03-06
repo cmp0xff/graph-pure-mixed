@@ -1,7 +1,7 @@
 \begin{tikzpicture}
 \begin{loglogaxis}[
 xlabel = {$T_\text{HD} \cdot \Lambda^{-1}$},
-extra x ticks = {3e-1, 3e0},
+extra x ticks = {3e-2, 3e-1, 3e0},
 xticklabel={
         \pgfkeys{/pgf/fpu=true}
         \pgfmathparse{exp(\tick)}%
@@ -16,7 +16,7 @@ yticklabel={
         \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
         \pgfkeys{/pgf/fpu=false}
       },
-legend entries={lower bound,upper bound,trace distance},
+legend entries={lower bound,upper bound,possible value},
 legend pos = south east]
 \addplot+[name path = lower, smooth, mark = none]
 	table [x index = 0, y index = 1] 

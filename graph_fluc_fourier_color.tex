@@ -8,7 +8,7 @@ xticklabel={
         \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
         \pgfkeys{/pgf/fpu=false}
       },
-ylabel = {$\abr{\vbr{\rfun{\what{g}}{p}}^2}\cdot T_\text{HD}$},
+ylabel = {$\abr{\vbr{\rfun{\what{f}}{p}}^2}\cdot T_\text{HD}$},
 legend entries={vacuum,pure,thermal}]
 \addplot+[smooth, mark = none]
 table[x index = 0, y index = 1] {./graphics/mesh_fluc_fourier.dat};
