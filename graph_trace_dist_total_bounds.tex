@@ -1,0 +1,34 @@
+\begin{tikzpicture}
+\begin{loglogaxis}[
+xlabel = {$T_\text{HD} \cdot \Lambda^{-1}$},
+extra x ticks = {3e-2, 3e-1, 3e0},
+xticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      },
+ylabel = {$\rfun{T}{\chi_b, \rfun{\rho_\text{th}}{T_\text{HD}}}$},
+extra y ticks = {3e-1, 3e-2},
+yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      },
+legend entries={
+\small lower bound,
+\small upper bound,
+\small possible value},
+legend pos = south east]
+\addplot[name path = lower, smooth, dashed]
+	table [x index = 0, y index = 1] 
+		{./graphics/mesh_trace_dist_total_bounds.dat};
+\addplot[name path = upper, smooth, dotted]
+	table [x index = 0, y index = 2] 
+		{./graphics/mesh_trace_dist_total_bounds.dat};
+\addplot[gray!50]
+	fill between [of = lower and upper];
+\end{loglogaxis}
+
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\begin{loglogaxis}[
+xlabel = {$p \cdot T_\text{HD}^{-1}$},
+extra x ticks = {3e-2, 3e-1, 3e0},
+xticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      },
+ylabel = {$\abr{\vbr{\rfun{\what{g}}{p}}^2}\cdot T_\text{HD}$},
+legend entries={vacuum,pure,thermal}]
+\addplot+[smooth, mark = none]
+table[x index = 0, y index = 1] {./graphics/mesh_fluc_fourier.dat};
+\addplot+[smooth, mark = none]
+table[x index = 0, y index = 2] {./graphics/mesh_fluc_fourier.dat};
+\addplot+[smooth, mark = none]
+table[x index = 0, y index = 3] {./graphics/mesh_fluc_fourier.dat};
+\end{loglogaxis}
+\end{tikzpicture}

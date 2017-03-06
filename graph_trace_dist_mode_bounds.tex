@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\begin{semilogyaxis}[
+xlabel = {$p \cdot T_\text{HD}^{-1}$},
+ylabel = {$\rfun{T}{\Ket{p}, \rfun{\rho_\text{th}^\rbr{p}}{T_\text{HD}}}$},
+legend entries={\small lower bound, \small upper bound,
+\small possible value},
+legend pos = south west]
+\addplot[name path = lower, smooth, dashed]
+	table [x index = 0, y index = 1] 
+		{./graphics/mesh_trace_dist_mode_bounds.dat};
+\addplot[name path = upper, smooth, dotted]
+	table [x index = 0, y index = 2] 
+		{./graphics/mesh_trace_dist_mode_bounds.dat};
+\addplot[gray!50]
+	fill between [of = lower and upper];
+\end{semilogyaxis}
+
+\end{tikzpicture}
